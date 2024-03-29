@@ -4,7 +4,8 @@ import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import Header from './common/Header';
 import CoursesPage from './CoursesPage';
-import { Route, Router } from 'react-router-dom/cjs/react-router-dom.min';
+import { Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import PageNotFound from './PageNotFound';
 
 function App() {
     //----Traditional routing-------
@@ -17,9 +18,12 @@ function App() {
     return (
         <div className="container-fluid">
             <Header />
-            <Route path="/" exact component={HomePage} /> {/* exact - This route should only match if the URL is exactly "/" */}
-            <Route path="/courses" component={CoursesPage} />
-            <Route path="/about" component={AboutPage} />
+            <Switch>
+                <Route path="/" exact component={HomePage} /> {/* exact - This route should only match if the URL is exactly "/" */}
+                <Route path="/courses" component={CoursesPage} />
+                <Route path="/about" component={AboutPage} />
+                <Route component={PageNotFound} />
+            </Switch>
         </div>
     )
 }
