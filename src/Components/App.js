@@ -4,7 +4,7 @@ import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import Header from './common/Header';
 import CoursesPage from './CoursesPage';
-import { Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import PageNotFound from './PageNotFound';
 
 function App() {
@@ -22,6 +22,8 @@ function App() {
                 <Route path="/" exact component={HomePage} /> {/* exact - This route should only match if the URL is exactly "/" */}
                 <Route path="/courses" component={CoursesPage} />
                 <Route path="/about" component={AboutPage} />
+                {/*Test Redirect */}
+                <Redirect from="/about-page" to="about" />
                 <Route component={PageNotFound} />
             </Switch>
         </div>
