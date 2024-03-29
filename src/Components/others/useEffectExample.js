@@ -13,7 +13,7 @@ function ExampleUseEffect() {
         <div>
             {/* <p>You clicked {count} times...</p> */}
             {count > 0 && <p>You clicked {count} times...</p>}
-            <button onClick={()=> setCount(count + 1)}  class="btn-primary">Click me</button>
+            <button onClick={()=> setCount(count + 1)}  class="btn btn-primary">Click me</button>
         </div>
     );
 }
