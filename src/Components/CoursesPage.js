@@ -1,6 +1,7 @@
 import React from "react";
 import {getCourses} from "../api/courseApi";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class CoursesPage extends React.Component {
     state = {
@@ -14,6 +15,9 @@ componentDidMount() {
 render () {
     return (
     <>
+    
+    <Link to="/course" class="btn btn-primary float-right">Add Course</Link>
+    <div className="clearfix"></div> {/*  is added after the link to clear the floating elements and ensure proper layout. */}
     <h2>Courses</h2>
     <table className="table">
         <thead>
