@@ -6,6 +6,7 @@ import Header from './common/Header';
 import CoursesPage from './CoursesPage';
 import { Redirect, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import PageNotFound from './PageNotFound';
+import ManageCoursePage from './ManageCoursePage';
 
 function App() {
     //----Traditional routing-------
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/about" component={AboutPage} />
                 {/*Test Redirect */}
                 <Redirect from="/about-page" to="about" />
+                <Route path="/course/:slug" component={ManageCoursePage} />
                 <Route component={PageNotFound} />
             </Switch>
         </div>
