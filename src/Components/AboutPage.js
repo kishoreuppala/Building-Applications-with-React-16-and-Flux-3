@@ -1,6 +1,7 @@
 import React from 'react';
 import ExampleUseState from './others/useStateExample';
 import ExampleUseEffect from './others/useEffectExample';
+import { Prompt } from 'react-router-dom/cjs/react-router-dom.min';
 
 class AboutPage extends React.Component {
     render() {
@@ -11,6 +12,9 @@ class AboutPage extends React.Component {
             <span>Email: </span><ExampleUseState />
             
             <br /><ExampleUseEffect />
+
+            {/* Test Prompt */}
+            <Prompt when={true} message="Are you sure you want to redirect?" />
         </>
         );
     }
