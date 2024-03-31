@@ -1,53 +1,37 @@
 import React from "react";
+import TextInput from "./common/TextInput";
+import ReusableSelect from "./common/ReusableSelect";
 
 function CourseForm(props) {
   return (
-    <form>
-      <div className="form-group">
-        <label htmlFor="title">Title</label>
-        <div className="field">
-          <input
+    <form onSubmit={props.onSubmit}>
+          <TextInput
             id="title"
             type="text"
             name="title"
+            label="Title"
             onChange={props.onChange}
-            className="form-control"
             value={props.course.title}
           />
-        </div>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="author">Author</label>
-        <div className="field">
-          <select
+          <ReusableSelect
             id="author"
             name="authorId"
+            label="Author"
             onChange={props.onChange}
             value={props.course.authorId || ""}
             className="form-control"
-          >
-            {/* <option value=""/> */}
-            <option value="" disabled selected>Select Author</option>
-            <option value="1">Uppala Kishore</option>
-            <option value="2">Joshith Sravan</option>
-          </select>
-        </div>
-      </div>
+            option1="Uppala Kishore"
+            option2="Joshith Sravan"
+          />
 
-      <div className="form-group">
-        <label htmlFor="category">Category</label>
-        <div className="field">
-          <input
-            type="text"
+          <TextInput
             id="category"
             name="category"
+            label="Category"
             onChange={props.onChange}
-            className="form-control"
             value={props.course.category}
           />
-        </div>
-      </div>
 
       <input type="submit" value="Save" className="btn btn-primary" />
     </form>

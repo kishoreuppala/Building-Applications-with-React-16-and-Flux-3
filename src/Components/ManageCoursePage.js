@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
+import * as CourseApi from "../api/courseApi";
 
 const ManageCoursePage = props => {
     const [course, setCourse] = useState({
@@ -14,6 +15,12 @@ const ManageCoursePage = props => {
         // debugger;
         const updatedCourse = {...course, [event.target.name]: event.target.value};
         setCourse(updatedCourse);
+    };
+
+    function handleSubmit(event) {
+        event.preventDefault(); // Prevent the page from posting back to the server.
+        //call api
+        CourseApi.saveCourse(course);
     }
     
     //(OR) we can use following code as well to handleChange()
@@ -28,7 +35,7 @@ const ManageCoursePage = props => {
         <>
             <h2>Manage Course</h2>
             {/* {props.match.params.slug} */}
-            <CourseForm course={course} onChange={handleChange} />
+            <CourseForm course={course} onChange={handleChange} onSubmit={handleSubmit} />
         </>
     );
 };
