@@ -7,6 +7,8 @@ import CoursesPage from './CoursesPage';
 import { Redirect, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import PageNotFound from './PageNotFound';
 import ManageCoursePage from './ManageCoursePage';
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     //----Traditional routing-------
@@ -18,6 +20,7 @@ function App() {
     // }
     return (
         <div className="container-fluid">
+            <ToastContainer autoClose="300" hideProgressBar />
             <Header />
             <Switch>
                 <Route path="/" exact component={HomePage} /> {/* exact - This route should only match if the URL is exactly "/" */}

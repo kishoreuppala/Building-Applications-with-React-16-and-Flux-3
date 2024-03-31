@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
 import * as CourseApi from "../api/courseApi";
+import { toast } from "react-toastify";
 
 const ManageCoursePage = props => {
     const [course, setCourse] = useState({
@@ -20,7 +21,11 @@ const ManageCoursePage = props => {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent the page from posting back to the server.
         //call api
-        CourseApi.saveCourse(course);
+        CourseApi.saveCourse(course).then(() => {
+            props.history.push("/courses");
+            //Display success message
+            toast.success("Course Added");
+        });
     }
     
     //(OR) we can use following code as well to handleChange()
