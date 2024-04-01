@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CourseForm from "./CourseForm";
 import * as CourseApi from "../api/courseApi";
 import { toast } from "react-toastify";
@@ -14,6 +14,13 @@ const ManageCoursePage = props => {
         authordId: null,
         category: ""
     });
+
+    useEffect( () => {
+        const slug = props.match.params.slug;   //Pulled from path /courses/:slug
+        if(slug) {
+            CourseApi.getCourseBySlug(slug).then (_course => setCourse(_course));
+        }
+    },[props.match.params.slug])    //Important to mention the dependency array, otherwise it will re render everytime react re-renders.
 
     function handleChange(event) {
         // debugger;
